@@ -6,9 +6,20 @@ var gulp = require('gulp'),
 	autoprefixer = require('autoprefixer'),
 	precss = require('precss'),
 	cssnano = require('cssnano'),
+	htmlmin = require('gulp-htmlmin'),
 
 	source = 'development/',
 	dest = 'production/';
+
+gulp.task('html', function(){
+	gulp.src(source + '*html')
+	.pipe(htmlmin({
+		collapseWhitespace: true,
+		minifyJS: true,
+		removeComments: true
+	}))
+	.pipe(gulp.dest(dest));
+});
 
 gulp.task('css', function(){
 	gulp.src(source + '**/*.css')
@@ -41,9 +52,10 @@ gulp.src(dest)
 });
 
 gulp.task('watch', function(){
+	gulp.watch(source + '**/*html', ['html']);
 	gulp.watch(source +'**/*.css', ['css']);
 	gulp.watch(source +'js/**/*.js', ['javascript']);
 	gulp.watch(source + 'images/**/*.{jpg, JPG, png}');
 });
 
-gulp.task('default', ['webserver', 'compress-images', 'watch', 'javascript', 'css']);
+gulp.task('default', ['webserver', 'compress-images', 'watch', 'javascript', 'css', 'html']);
