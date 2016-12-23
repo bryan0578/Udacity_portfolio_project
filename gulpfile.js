@@ -19,4 +19,8 @@ gulp.src(dest)
 	}));
 });
 
-gulp.task('default', ['webserver', 'compress-images']);
+gulp.task('watch', function(){
+	gulp.watch(source + 'images/**/*.{jpg, JPG, png}');
+});
+
+gulp.task('default', ['webserver', 'compress-images', 'watch']);
