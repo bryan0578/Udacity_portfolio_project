@@ -27,6 +27,7 @@ gulp.src(dest)
 });
 
 gulp.task('watch', function(){
+	gulp.watch(source +'js/**/*.js', ['javascript']);
 	gulp.watch(source + 'images/**/*.{jpg, JPG, png}');
 });
 
