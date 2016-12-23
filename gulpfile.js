@@ -1,9 +1,16 @@
 var gulp = require('gulp'),
 	webserver = require('gulp-webserver'),
 	imagemin = require('gulp-imagemin'),
+	minify = require('gulp-minify'),
 
 	source = 'development/',
 	dest = 'production/';
+
+gulp.task('javascript', function(){
+	gulp.src(source + 'js/*.js')
+		.pipe(minify())
+		.pipe(gulp.dest(dest + 'js'));
+});
 
 gulp.task('compress-images', function(){
 	gulp.src(source + 'images/**/*.{jpg, JPG, png}')
@@ -23,4 +30,4 @@ gulp.task('watch', function(){
 	gulp.watch(source + 'images/**/*.{jpg, JPG, png}');
 });
 
-gulp.task('default', ['webserver', 'compress-images', 'watch']);
+gulp.task('default', ['webserver', 'compress-images', 'watch', 'javascript']);
