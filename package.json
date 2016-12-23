@@ -1,0 +1,41 @@
+{
+  "name": "udacity_portfolio_project",
+  "version": "1.0.0",
+  "description": "Portfolio project to display all Udacity projects completed",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-imagemin": "^3.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-responsive-images": "^1.10.1",
+    "gulp-concat": "^2.6.1"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryan0578/Udacity_portfolio_project.git"
+  },
+  "keywords": [
+    "portfolio",
+    "projects",
+    "python",
+    "UX/UI",
+    "Front-end",
+    "Back-end",
+    "Full",
+    "Stack"
+  ],
+  "author": "Bryan Cash",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bryan0578/Udacity_portfolio_project/issues"
+  },
+  "homepage": "https://github.com/bryan0578/Udacity_portfolio_project#readme"
+}
