@@ -6,18 +6,15 @@ var gulp = require('gulp'),
 	autoprefixer = require('autoprefixer'),
 	precss = require('precss'),
 	cssnano = require('cssnano'),
-	htmlmin = require('gulp-htmlmin'),
+	htmlcpr = require('gulp-htmlcpr'),
+	
 
 	source = 'development/',
 	dest = 'production/';
 
 gulp.task('html', function(){
-	gulp.src(source + '*html')
-	.pipe(htmlmin({
-		collapseWhitespace: true,
-		minifyJS: true,
-		removeComments: true
-	}))
+	gulp.src(source + 'index.html')
+	.pipe(htmlcpr())
 	.pipe(gulp.dest(dest));
 });
 
@@ -30,6 +27,7 @@ gulp.task('css', function(){
 			]))
 		.pipe(gulp.dest(dest));
 });
+
 
 gulp.task('javascript', function(){
 	gulp.src(source + 'js/*.js')
@@ -52,10 +50,9 @@ gulp.src(dest)
 });
 
 gulp.task('watch', function(){
-	gulp.watch(source + '**/*html', ['html']);
 	gulp.watch(source +'**/*.css', ['css']);
 	gulp.watch(source +'js/**/*.js', ['javascript']);
 	gulp.watch(source + 'images/**/*.{jpg, JPG, png}');
 });
 
-gulp.task('default', ['webserver', 'compress-images', 'watch', 'javascript', 'css', 'html']);
+gulp.task('default', ['compress-images', 'html']);
