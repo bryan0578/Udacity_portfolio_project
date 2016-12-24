@@ -7,27 +7,17 @@ var gulp = require('gulp'),
 	precss = require('precss'),
 	cssnano = require('cssnano'),
 	htmlcpr = require('gulp-htmlcpr'),
+	sass = require('gulp-sass');
 	
 
 	source = 'development/',
 	dest = 'production/';
 
-gulp.task('html', function(){
-	gulp.src(source + 'index.html')
-	.pipe(htmlcpr())
-	.pipe(gulp.dest(dest));
+gulp.task('sass', function () {
+    gulp.src(source +'css/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('./css'));
 });
-
-gulp.task('css', function(){
-	gulp.src(source + '**/*.css')
-		.pipe(postcss([
-			precss(),
-			autoprefixer(),
-			cssnano()
-			]))
-		.pipe(gulp.dest(dest));
-});
-
 
 gulp.task('javascript', function(){
 	gulp.src(source + 'js/*.js')
@@ -55,4 +45,4 @@ gulp.task('watch', function(){
 	gulp.watch(source + 'images/**/*.{jpg, JPG, png}');
 });
 
-gulp.task('default', ['compress-images', 'html']);
+gulp.task('default', ['compress-images', 'sass']);

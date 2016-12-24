@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,400|Open+Sans:300,400');
+
+$lightblue:	#02b3e4;
+$darkblue:  #2d3c49;
+$bluegrey:  #7d97ad;
+
+$textMuted: $bluegrey;
+$fontMain:  $darkblue;
+
+body {
+	font-family: 'Lato', sans-serif;
+	color: $darkblue;
+	font-weight: 300;
+}
+
+.text-muted {
+  color: #BCBBBB;
+}
+
+.text-thin {
+  font-weight: 100;
+}
+
+.title-super {
+  font-size: 60px;
+}
+
